@@ -1,3 +1,3 @@
 .idea
-myfirst_web/myfirst/venv
-myfirst_web/myfirst/myfirst/db.sqlite3
+venv/
+db.sqlite3
