@@ -1,0 +1,41 @@
+{% extends 'main/form_base.html' %}
+
+
+{% block form %}
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" class="form-control" name="username">
+    </div>
+    <div class="input-group mb-2">
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        <input type="password" class="form-control" name="password">
+    </div>
+
+{% endblock %}
+
+
+{% block reg_status %}
+    {% if form.errors %}
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">
+                <span class="alert alert-danger m-2"> {{ form.errors }} </span>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block script%}
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder='Username...';
+    form_fields[2].placeholder='Enter password...';
+
+
+    for (var field in form_fields){
+        form_fields[field].className += ' form-control'
+    }
+{% endblock %}
